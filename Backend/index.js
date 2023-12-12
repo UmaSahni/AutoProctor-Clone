@@ -2,14 +2,17 @@ const express = require ("express")
 
 const { mcqRoutes } = require("./Routes/mcq.routes")
 const { connection } = require("./db")
+const { clozeRouter } = require("./Routes/cloze.routes")
 const port = 8080
 
 const app = express()
 app.use(express.json()) // inbuilt middleware
 
-// Route for question type MCQ
+// MCQ : Route
 app.use("/mcq", mcqRoutes)
 
+// CLOZE : Route
+app.use("/cloze", clozeRouter) 
 
 app.listen(port, async()=>{
     console.log(`connected to port ${port}`)
