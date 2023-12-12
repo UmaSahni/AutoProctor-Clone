@@ -22,9 +22,9 @@ const clozeSchema = new mongoose.Schema({
       },
       text: {
         type: String, // The blacked word
-        required: true,
+       
       },
-      options: [ // Options with incorrect words
+      options: [ 
         {
           text: {
             type: String,
@@ -39,8 +39,7 @@ const clozeSchema = new mongoose.Schema({
     },
   ],
   points: {
-    type: Number,
-    required: true,
+    type: Number
   },
 });
 

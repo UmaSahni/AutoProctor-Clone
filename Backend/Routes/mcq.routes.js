@@ -17,7 +17,7 @@ mcqRoutes.get("/all/:userId", async (req, res) => {
 
 // Method: POST -> Add mcq type question
 mcqRoutes.post("/add", async (req, res) => {
-  const questionsArray = req.body; // Assuming an array of questions is sent in the request body
+  const questionsArray = req.body; 
   try {
     // Iterate through the array and save each question individually
     for (const { userId, questionType, question, points, options } of questionsArray) {
