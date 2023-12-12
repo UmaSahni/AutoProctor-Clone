@@ -1,5 +1,5 @@
 const express = require ("express")
-
+var cors = require('cors')
 const { mcqRoutes } = require("./Routes/mcq.routes")
 const { connection } = require("./db")
 const { clozeRouter } = require("./Routes/cloze.routes")
@@ -7,6 +7,7 @@ const port = 8080
 
 const app = express()
 app.use(express.json()) // inbuilt middleware
+app.use(cors())
 
 // MCQ : Route
 app.use("/mcq", mcqRoutes)

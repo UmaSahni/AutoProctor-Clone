@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from "axios"
 
 const CompreQuestion = () => {
   const [questions, setQuestions] = useState([
     { id: 1, text: '', options: ['', '', '', ''], correct: 0 },
   ]);
+
+  const [format, setFormat] = useState(null)
 
   const handleAddQuestion = () => {
     setQuestions([...questions, { id: questions.length + 1, text: '', options: ['', '', '', ''], correct: 0 }]);
@@ -32,6 +35,31 @@ const CompreQuestion = () => {
       )
     );
   };
+
+  useEffect(() => {
+    // This will be automatically called whenever questions state changes
+    const backendFormat = questions.map((question) => ({
+      userId: 'radha1',
+      question: question.text,
+      options: question.options.map((option, index) => ({
+        text: option,
+        isCorrect: index === question.correct,
+      })),
+    }));
+    setFormat(backendFormat)
+    console.log(backendFormat);
+  }, [questions]); // Specify questions as a dependency for useEffect
+
+
+  const handleSubmit = () => {
+    axios.post(`http://localhost:8080/mcq/add`, format)
+    .then((res)=>{
+      console.log(res)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
 
   return (
     <div className="container mx-auto mt-8 p-4">
@@ -78,7 +106,8 @@ const CompreQuestion = () => {
         </div>
       ))}
 
-      
+      <button onClick={handleSubmit} >Save</button>
+
     </div>
   );
 };
