@@ -14,6 +14,10 @@ const mcqSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  passage :{
+    type:String,
+    required:true
+  },
   points: {
     type: Number,
   },

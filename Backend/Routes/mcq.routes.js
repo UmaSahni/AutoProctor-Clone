@@ -20,8 +20,8 @@ mcqRoutes.post("/add", async (req, res) => {
   const questionsArray = req.body; 
   try {
     // Iterate through the array and save each question individually
-    for (const { userId, questionType, question, points, options } of questionsArray) {
-      const newQuestion = new MCQ({ userId, questionType, question, points, options });
+    for (const { userId, questionType, question, points, options, passage } of questionsArray) {
+      const newQuestion = new MCQ({ userId, questionType, question, points, options, passage });
       await newQuestion.save();
     }
 

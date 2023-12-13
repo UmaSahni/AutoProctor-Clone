@@ -21,8 +21,8 @@ const clozeSchema = new mongoose.Schema({
         required: true,
       },
       text: {
-        type: String, // The blacked word
-       
+        type: Array, // The blacked word
+        required:true
       },
       options: [ 
         {

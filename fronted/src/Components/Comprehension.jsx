@@ -4,6 +4,7 @@ import CompreQuestion from './CompreQuestion'
 const Comprehension = () => {
   return (
     <div>
+      
         <CompreQuestion/>
     </div>
   )

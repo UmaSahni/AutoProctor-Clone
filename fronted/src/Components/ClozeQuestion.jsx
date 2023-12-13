@@ -123,7 +123,7 @@ const ClozeForm = () => {
     const index = underlinedWords.length > 0 ? options.indexOf(underlinedWords[0]) : -1;
     const blank = {
       index,
-      text: underlinedWords[0] || "", // Set a default value for text if it's undefined
+      text: underlinedWords, // Set a default value for text if it's undefined
       options: options.map((option, i) => ({
         text: option,
         isCorrect: i === selectedOption,

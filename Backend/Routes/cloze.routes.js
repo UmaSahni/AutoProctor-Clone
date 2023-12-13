@@ -26,7 +26,8 @@ clozeRouter.post("/add", async (req, res) => {
         questionType,
         sentence,
         blanks,
-        points,
+        points
+        
       });
       await newQuestion.save();
     }
