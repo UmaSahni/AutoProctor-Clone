@@ -3,7 +3,9 @@ var cors = require('cors')
 const { mcqRoutes } = require("./Routes/mcq.routes")
 const { connection } = require("./db")
 const { clozeRouter } = require("./Routes/cloze.routes")
-const port = 8080
+require('dotenv').config()
+
+const port = process.env.port
 
 const app = express()
 app.use(express.json()) // inbuilt middleware
