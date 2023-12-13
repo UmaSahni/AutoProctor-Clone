@@ -15,6 +15,7 @@ const ClozeForm = () => {
     },
   ]);
   const [format, setFormat] = useState(null);
+  const storedUserId = sessionStorage.getItem('userId');
 
   const handleTextChange = (questionId, e) => {
     setQuestions((prevQuestions) =>
@@ -131,7 +132,7 @@ const ClozeForm = () => {
     };
 
     return {
-      userId: 'radha1',
+      userId: storedUserId,
       sentence: text,
       blanks: [blank],
     };

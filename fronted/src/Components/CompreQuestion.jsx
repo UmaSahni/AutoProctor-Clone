@@ -10,6 +10,8 @@ const CompreQuestion = () => {
     { id: 1, text: "", options: ["", "", "", ""], correct: 0 },
   ]);
 
+  const storedUserId = sessionStorage.getItem('userId');
+
   const [passage, setPassage] = useState("");
   const [format, setFormat] = useState(null);
   const handleAddQuestion = () => {
@@ -65,7 +67,7 @@ const CompreQuestion = () => {
   useEffect(() => {
     // This will be automatically called whenever questions state changes
     const backendFormat = questions.map((question) => ({
-      userId: "radha1",
+      userId: storedUserId,
       question: question.text,
       passage,
       options: question.options.map((option, index) => ({
