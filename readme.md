@@ -44,7 +44,7 @@
 
 ![Form Preview](https://github.com/UmaSahni/AutoProctor-Clone/assets/112793743/81ad00fa-cc76-4807-a344-e57b76e014e3)
 
-## Databse for MCQ Questions
+## Database for MCQ Questions
 ```json
 {
   "_id": {
