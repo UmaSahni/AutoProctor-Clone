@@ -148,7 +148,7 @@ const ClozeForm = () => {
   const handleSubmit = () => {
     setIsLoading(true);
     axios
-      .post(`http://localhost:8080/cloze/add`, format)
+      .post(`https://formbackend-z79r.onrender.com/cloze/add`, format)
       .then((response) => {
         setIsLoading(false);
         console.log("Questions sent successfully", response);

@@ -13,7 +13,7 @@ const Preview = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/mcq/all/${storedUserId}`)
+      .get(`https://formbackend-z79r.onrender.com/mcq/all/${storedUserId}`)
       .then((res) => {
         // console.log(res.data.data);
         setComprehenstion(res.data.data);
@@ -24,7 +24,7 @@ const Preview = () => {
   }, []);
 
   useEffect(()=>{
-    axios.get(`http://localhost:8080/cloze/all/${storedUserId}`)
+    axios.get(`https://formbackend-z79r.onrender.com/cloze/all/${storedUserId}`)
     .then((res)=>{
       console.log(res.data.data)
       setCloze(res.data.data)

@@ -83,7 +83,7 @@ const CompreQuestion = () => {
   const handleSubmit = () => {
     setLoading(true)
     axios
-      .post(`http://localhost:8080/mcq/add`, format)
+      .post(`https://formbackend-z79r.onrender.com/mcq/add`, format)
       .then((res) => {
         setLoading(false)
         console.log(res);
