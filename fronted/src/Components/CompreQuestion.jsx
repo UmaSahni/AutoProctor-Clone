@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { FaPlus } from "react-icons/fa";
+import { FaEye, FaPlus } from "react-icons/fa";
 import { FaGripLines, FaTrash } from "react-icons/fa";
 import { FaImage } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 const CompreQuestion = () => {
   const [questions, setQuestions] = useState([
     { id: 1, text: "", options: ["", "", "", ""], correct: 0 },
@@ -88,15 +89,22 @@ const CompreQuestion = () => {
   };
 
   console.log(questions);
+  const navigate = useNavigate()
 
   return (
     <>
-      <div className="flex" >
-        <h2 className="text-lg font-bold m-4 mr-0">Comprehension Editor</h2>
-        <button className="m-5" >
-          <FaImage />
-        </button>
-      </div>
+ <div className="flex">
+  <h2 className="text-lg font-bold m-4 mr-0">Comprehension Editor</h2>
+  <div className="flex ml-auto">
+    <button>
+      <FaImage className="m-2" />
+    </button>
+    <button>
+      <FaEye onClick={()=>navigate("/pre")}  className="m-2" />
+    </button>
+  </div>
+</div>
+
 
       <textarea
         value={passage}

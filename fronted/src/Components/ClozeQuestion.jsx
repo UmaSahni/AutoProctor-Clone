@@ -150,7 +150,10 @@ const ClozeForm = () => {
   };
 
   return (
+    <>
+     <h2 className="text-lg font-bold m-4 mr-0">Cloze Editor</h2>
     <div className="container mx-auto mt-8 p-4">
+     
       <DragDropContext onDragEnd={handleDragEnd}>
         {questions.map((question, index) => (
           <Droppable
@@ -251,6 +254,7 @@ const ClozeForm = () => {
       </DragDropContext>
       <button className='bg-green-600 pr-3 pl-3' onClick={handleSubmit}>Save</button>
     </div>
+    </>
   );
 };
 
