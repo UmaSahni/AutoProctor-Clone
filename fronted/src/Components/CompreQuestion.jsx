@@ -9,7 +9,8 @@ const CompreQuestion = () => {
   const [questions, setQuestions] = useState([
     { id: 1, text: "", options: ["", "", "", ""], correct: 0 },
   ]);
-
+  const [loading, setLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
   const storedUserId = sessionStorage.getItem('userId');
 
   const [passage, setPassage] = useState("");
@@ -80,12 +81,16 @@ const CompreQuestion = () => {
   }, [questions]); // Specify questions as a dependency for useEffect
 
   const handleSubmit = () => {
+    setLoading(true)
     axios
       .post(`http://localhost:8080/mcq/add`, format)
       .then((res) => {
+        setLoading(false)
         console.log(res);
       })
       .catch((err) => {
+        setLoading(false)
+        setIsError(true)
         console.log(err);
       });
   };
@@ -98,9 +103,6 @@ const CompreQuestion = () => {
  <div className="flex">
   <h2 className="text-lg font-bold m-4 mr-0">Comprehension Editor</h2>
   <div className="flex ml-auto">
-    <button>
-      <FaImage className="m-2" />
-    </button>
     <button>
       <FaEye onClick={()=>navigate("/pre")}  className="m-2" />
     </button>
@@ -205,7 +207,8 @@ const CompreQuestion = () => {
           ))}
 
           <button className="bg-green-600 pr-3 pl-3" onClick={handleSubmit}>
-            Save
+            {!loading  ? "save" : "loading..." } {" "}
+            {isError && "An Error Occured"  }
           </button>
         </div>
       </DragDropContext>
